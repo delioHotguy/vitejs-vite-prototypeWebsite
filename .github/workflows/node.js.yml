@@ -30,6 +30,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - name: Run tests
+      uses: actions/setup-node@v4
     - run: npm test -- --verbose 
     - run: npx vitest run --reporter=verbose
     - run: npm tests
