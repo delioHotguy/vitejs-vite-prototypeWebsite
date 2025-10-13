@@ -35,3 +35,4 @@ jobs:
     - run: npx vitest run --reporter=verbose
     - run: npm tests
     - name: Install dependencies
+      uses: actions/setup-node@v4
