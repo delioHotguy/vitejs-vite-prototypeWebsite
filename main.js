@@ -1,5 +1,6 @@
-import './style.css'
+import './style.css';
 
+import React from 'react';
 import * as THREE from 'three';
 // import THREE from "three.min.js"; (outdated/old/backup)
 
@@ -28,3 +29,5 @@ function animate() {
     renderer.render( scene, camera );
   }
   renderer.setAnimationLoop( animate );
+
+  this.camera.position.set(0,0,4)
