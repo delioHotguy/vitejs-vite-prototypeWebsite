@@ -26,10 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
     - name: Install Dependences
-    - run: npm install 
+     run: npm install 
     - run: npm ci
     - run: npm run build --if-present
+
     - name: Run Vitest
     - run: npm run test 
     - run: npx vitest run --reporter=verbose
