@@ -3,7 +3,7 @@ import { test, expect, it } from 'vitest';
 import React from 'react';
 import ReactDOMClient from 'react-dom/client';
 
-import App from "../../App"; 
+import App from "./App"; 
 
 test('basic test', () => {
   expect(1 + 1).toBe(2);
