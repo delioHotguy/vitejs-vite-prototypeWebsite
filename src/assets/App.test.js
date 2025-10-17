@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOMClient from 'react-dom/client';
 
-import App from "../App"; // If the file is named AppComponent.js
+import App from "../../App"; 
 
 test('basic test', () => {
   expect(1 + 1).toBe(2);
