@@ -1,3 +1,5 @@
+import { test, expect, it } from 'vitest';
+
 import React from 'react';
 import ReactDOMClient from 'react-dom/client';
 
