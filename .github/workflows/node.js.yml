@@ -31,4 +31,3 @@ jobs:
 
       - name: Run tests
         run: npm test
-        run: npm install --save-dev jsdom
