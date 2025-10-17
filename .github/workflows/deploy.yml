@@ -19,7 +19,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy
-        uses: actions/github-pages-deploy-action@v4
+        uses: delioHotguy/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist
