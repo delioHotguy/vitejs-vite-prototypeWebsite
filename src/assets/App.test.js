@@ -1,4 +1,8 @@
 //<div id="info">Nealie Wheelie</div>
+// src/App.test.js
+test('basic test', () => {
+  expect(1 + 1).toBe(2);
+});
 
 import * as THREE from 'three';
 // import THREE from "three.min.js"; (outdated/old/backup)
