@@ -6,6 +6,9 @@ on:
       - main
 
 jobs:
+  permissions:
+      contents: write
+
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -24,3 +27,4 @@ jobs:
           branch: gh-pages
           folder: dist
           clean: true
+          publish_dir: ./src
