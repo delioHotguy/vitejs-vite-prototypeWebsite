@@ -32,6 +32,6 @@ jobs:
     - name: Run Tests
       uses: actions/setup-node@v4
       with:
-        node-version-file: src/assets/App.test.js
+        node-version-file: package.json
     - run: npm run test 
     - run: npx vitest run --reporter=verbose
