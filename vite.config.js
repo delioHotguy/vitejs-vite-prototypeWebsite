@@ -6,7 +6,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
   },
-  base: '/',
+  base: 'https://nealaracil.work/',
 
   plugins: [react()],
 })
