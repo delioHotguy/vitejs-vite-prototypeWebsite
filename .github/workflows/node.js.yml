@@ -30,7 +30,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - name: Run Tests
-      uses: actions/setup-npm@v20
+      uses: actions/setup-vitest@v4
       with:
         node-version-file: package.json
         cache: 'npm'
