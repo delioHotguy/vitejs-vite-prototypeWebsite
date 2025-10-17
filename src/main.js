@@ -3,6 +3,7 @@ import './style.css';
 import React from 'react';
 import * as THREE from 'three';
 // import THREE from "three.min.js"; (outdated/old/backup)
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 console.log("main.js loaded!");
 
