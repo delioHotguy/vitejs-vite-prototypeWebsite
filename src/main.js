@@ -3,7 +3,7 @@ import './style.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+//import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 console.log("main.js loaded!");
 
@@ -71,5 +71,6 @@ class ThreeScene extends React.Component {
 }
 
 // Render the Three.js scene
-const root = ReactDOM.createRoot(document.body);
+const container = document.getElementById('three-container');
+const root = ReactDOM.createRoot(container);
 root.render(<ThreeScene />);
