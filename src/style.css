@@ -13,3 +13,9 @@ canvas {
     z-index: 100;
     display:block;
   }
+
+#three-container canvas {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+}
