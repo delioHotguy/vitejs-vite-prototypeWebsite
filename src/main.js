@@ -1,36 +1,75 @@
 import './style.css';
 
 import React from 'react';
+import ReactDOM from 'react-dom/client';
 import * as THREE from 'three';
-// import THREE from "three.min.js"; (outdated/old/backup)
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 console.log("main.js loaded!");
 
-//create camera for scene
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-//use Web Gl for 3D rendering
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
-
-//bring in cube
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
-
-camera.position.z = 5;
-
-//Animate in scene
-function animate() {
-     //create rotation animation
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-    renderer.render( scene, camera );
+// Three.js Scene Component
+class ThreeScene extends React.Component {
+  componentDidMount() {
+    // Create scene
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    
+    // Create renderer
+    this.renderer = new THREE.WebGLRenderer();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.mount.appendChild(this.renderer.domElement);
+    
+    // Create cube
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    this.cube = new THREE.Mesh(geometry, material);
+    this.scene.add(this.cube);
+    
+    // Position camera
+    this.camera.position.z = 5;
+    
+    // Start animation loop
+    this.animate();
+    
+    // Handle window resize
+    window.addEventListener('resize', this.handleResize);
   }
-  renderer.setAnimationLoop( animate );
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+    if (this.renderer) {
+      this.renderer.dispose();
+    }
+  }
+  
+  handleResize = () => {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  
+  animate = () => {
+    requestAnimationFrame(this.animate);
+    
+    // Rotate cube
+    if (this.cube) {
+      this.cube.rotation.x += 0.01;
+      this.cube.rotation.y += 0.01;
+    }
+    
+    this.renderer.render(this.scene, this.camera);
+  }
+  
+  render() {
+    return (
+      <div 
+        ref={mount => this.mount = mount}
+        style={{ width: '100%', height: '100vh' }}
+      />
+    );
+  }
+}
 
-  this.camera.position.set(0,0,4)
+// Render the Three.js scene
+const root = ReactDOM.createRoot(document.body);
+root.render(<ThreeScene />);
